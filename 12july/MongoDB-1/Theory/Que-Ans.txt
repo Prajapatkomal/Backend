@@ -1,0 +1,172 @@
+1. What is a NoSQL Database, and explain the types of NoSQL database?
+Ans: NoSQL stands for Not only SQL. It is a type of database that uses non-relational
+     data structures, such as documents, graph databases, and key-value stores to store
+     and retrieve data. NoSQL systems are designed to be more flexible than tradition 
+     relational databases and can scale up or down easily to accommodate changes in
+     usage or load. This makes them ideal for use in applications
+     NoSQL databases are defined as non-tabular databases that handle data storage   
+     differently as compared to relational tables.
+
+     
+    The types of NoSQL databases are:-
+    a. Key-value pair => Key-value stores are the simplest type of NoSQL database. They store
+                         data as a collection of key-value pairs where the key is unique. This
+                         type is highly efficient and suitable for scenarios requiring simple 
+                         queries and quick lookups.
+
+    b. Column =>         Column-family stores (also known as wide-column stores) organize data
+                         into rows and columns, but unlike traditional relational databases,
+                         columns are grouped into families. Each row can have a different number
+                         of columns, making this type flexible for sparse data.
+    
+   
+    c. Document =>       Document stores store data in documents, which are typically JSON, BSON,
+                         or XML objects. Each document is a self-contained unit of data, and 
+                         collections of documents are grouped together. This type allows for 
+                         complex nested data structures.
+
+    d. Graph =>          Graph databases store data in the form of nodes, edges, and properties.
+                         This type is designed to handle data with complex relationships and is 
+                         optimized for traversing and querying these relationships efficiently.
+
+    e. Multi-model =>    Multi-model databases support multiple types of data models (document, key-value, graph, etc.) 
+                         within a single database engine. This flexibility allows developers to use the most appropriate
+                         data model for different parts of an application.
+
+
+2. What is the difference between SQL and NoSQL databases?
+Ans: a. SQL databases are relational, and NoSQL databases are non-relational.
+     b. SQL databases use structured query language (SQL) and have a predefined 
+        schema. NoSQL databases have dynamic schemas for unstructured data.
+     c. SQL databases are vertically scalable, while NoSQL databases are 
+        horizontally scalable.
+     d. SQL databases are table-based, while NoSQL databases are document,
+        key-value, graph, or wide-column stores.
+     e. SQL databases are better for multi-row transactions, while NoSQL is better
+        for unstructured data like documents or JSON.
+
+3. How to choose between MongoDB and MySQL based on your requirements?
+Ans: Choose MongoDB if your requirements include handling large volumes
+     of unstructured data, flexibility in schema design, horizontal 
+     scalability, and real-time analytics. Choose MySQL if you need a
+     relational database with structured data, complex joins, ACID 
+     compliance, and transactions.
+
+4. What are collections and documents in a MongoDB database?
+Ans: A collection in MongoDB is analogous to a table in a relational database. 
+     It is a grouping of MongoDB documents. Collections are dynamic and flexible
+     in nature, meaning that they do not enforce a schema or structure on the 
+     documents they contain. This allows for a great deal of flexibility when 
+     storing data.
+
+     A document in MongoDB is analogous to a row in a relational database. It is
+     a single record in a MongoDB collection. Documents are stored in BSON (Binary JSON)
+     format, but they can be represented as JSON objects when being interacted with.
+     It is a data structure composed of field and value pairs. MongoDB documents
+     are similar to JSON objects. The values of fields may include other documents,
+     arrays, and arrays of documents.
+
+
+
+5. What is BSON? What is the difference between BSON and JSON?
+Ans: BSON (Binary JSON) is a binary representation of JSON-like documents. 
+     It stands for Binary JavaScript Object Notation. BSON is designed to be
+     efficient both in storage space and scan speed. It extends the JSON model
+     to provide additional data types, ordered fields, and more efficient encoding
+     of data.
+ 
+Main differences between JSON and BSON :-
+Binary vs. text:       BSON is a binary-encoded format, whereas JSON is a text-based format. 
+                       This means that BSON is compact for transmitting over a network, while
+                       JSON is human-readable and easier to work with in various contexts.
+
+Extended data support: JSON is limited to JavaScript data types, including string, number,
+                       boolean, null, object, and array. Those data types can be used in 
+                       combination to represent complex data types. BSON supports additional
+                       data types (such as binary data and date types) that are not supported
+                       by JSON.
+
+Supported by:          BSON is natively supported only by MongoDB. JSON, on the other hand, 
+                       is widely supported and can be used with distributed database systems,
+                       programming languages, and platforms.
+
+Footprint:             In some situations, BSON documents can be larger than equivalent JSON documents
+                       because they include additional metadata and type information that is not present
+                       in JSON. This can impact transmission times and storage requirements, especially for large datasets. Both BSON and JSON can benefit from compression.
+
+ 
+
+Complexity and compatibility: BSON is more complex than JSON, making it difficult to work with
+                              in certain contexts. Developers may need to learn new data types 
+                              and encoding/decoding methods to work with BSON effectively.
+                              Compatibility issues may also arise when exchanging data between systems that do not fully support BSON’s additional types.
+
+
+
+6. What are MongoDB Compass and MongoDB Shell used for?
+Ans: MongoDB Compass : It is a graphical user interface (GUI) tool provided 
+     by MongoDB for managing and interacting with MongoDB databases. 
+     It provides a user-friendly, visual way to interact with your data
+     without needing to write command-line queries.
+     MongoDB Shell: It (mongosh) is a command-line interface (CLI) tool 
+     for interacting with MongoDB databases. It allows you to write and
+     execute commands and queries directly against your MongoDB instance
+     using the MongoDB Query Language (MQL).
+
+7. How to create collections in MongoDB?
+Ans: use command -->  db.createCollection('name_of_collection')
+
+8. What is the difference between insertMany and insertOne?
+Ans:  insertMany used to add more than one documents in collection
+      and insertOne used to add one document in colllection.
+
+9. What is the difference between deleteOne and deleteMany?
+Ans:  deleteOne used to delete One sepcific document from collection
+      and deleteMany used to delete more than one documents from colllection.
+
+10. How to read data in MongoDB? What is the difference between find and findOne?
+Ans: use command --> show dbs  -> to show databases
+                     show collections -> to show all collections of any database
+                     db.collection.find() -> to show documents of collection
+
+11. What is $set in MongoDB?
+Ans: set is used to update any document of colllection by adding
+     new data in existing document or updating old data of any document.
+
+
+12. How to filter data using MongoDB?
+Ans: There are several ways to filter data using MongoDB :-
+      ==> Find All Documents  
+          db.collection.find()
+
+      ==> Find Documents with Specific Field Value
+          db.collection.find({ age: 25 })
+
+      ==> Find Documents with Multiple Criteria
+          db.collection.find({ age: 25, status: "A" })
+
+      ==> Comparison Operators -  Find all documents where age is greater than 25
+          db.collection.find({$age:{gt:25}})
+          Other comparison operators include $lt, $gte, $lte, $ne, and $in.
+
+      ==> Logical Operator- Find all documents where age is greater than 25 and status is "A".
+          db.collection.find({ $and: [{ age: { $gt: 25 } }, { status: "A" }] })
+
+      ==> Field Existence - Find all documents where the age field exists
+          db.collection.find({ age: { $exists: true } })
+
+      ==> Find all documents where the name field starts with "J".
+          db.collection.find({ name: { $regex: /^J/ } })
+
+      ==> Find all documents with name and age fields, excluding _id.
+          db.collection.find({}, { name: 1, age: 1, _id: 0 })
+ 
+
+
+
+
+
+
+
+
+ 
